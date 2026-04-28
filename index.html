@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Castrillon Autopeças - 33 anos movendo o Centro-Norte do Brasil</title>
+<meta name="description" content="Maior rede de autopeças do Centro-Norte do Brasil. 90+ lojas em 8 estados, 5 centros de distribuição, mais de 4 milhões de peças em estoque. Linha leve, pesada e agrícola.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0E1A2B;
+  --navy-deep: #07101C;
+  --amber: #E2761B;
+  --amber-bright: #F58A2E;
+  --paper: #F4EDE0;
+  --paper-warm: #EFE5D2;
+  --graphite: #2A2A2A;
+  --graphite-soft: #4A4A4A;
+  --warning: #C53030;
+  --line: rgba(14, 26, 43, 0.12);
+  --line-strong: rgba(14, 26, 43, 0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--paper);
+  color: var(--navy);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ============ GRAIN OVERLAY ============ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+/* ============ NAV ============ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(244, 237, 224, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  transition: padding 0.3s ease;
+}
+
+.nav.scrolled { padding: 12px 48px; }
+
+.logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.logo-mark {
+  width: 14px;
+  height: 14px;
+  background: var(--amber);
+  display: inline-block;
+  transform: rotate(45deg);
+  margin-right: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--amber); }
+
+.nav-cta {
+  background: var(--navy);
+  color: var(--paper) !important;
+  padding: 10px 18px;
+  border-radius: 2px;
+  letter-spacing: 0.05em !important;
+}
+
+.nav-cta:hover {
+  background: var(--amber);
+  color: var(--navy) !important;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  padding: 140px 48px 80px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(226, 118, 27, 0.08), transparent 50%),
+    var(--paper);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(56px, 8vw, 124px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.hero h1 .accent {
+  color: var(--amber);
+  display: inline-block;
+  position: relative;
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--graphite);
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--amber);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.btn-arrow {
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* Hero side panel - typographic stack */
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid var(--line-strong);
+  padding-left: 40px;
+}
+
+.stack-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.stack-item:last-child { border-bottom: none; }
+
+.stack-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 72px;
+  line-height: 0.9;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.stack-num .unit {
+  font-size: 36px;
+  color: var(--amber);
+  margin-left: 4px;
+}
+
+.stack-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+  margin-top: 8px;
+}
+
+/* ============ NUMBERS BAND ============ */
+.numbers {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.numbers::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(45deg, transparent 49%, rgba(244, 237, 224, 0.03) 49%, rgba(244, 237, 224, 0.03) 51%, transparent 51%);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.numbers-header {
+  max-width: 1280px;
+  margin: 0 auto 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  position: relative;
+}
+
+.numbers-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+
+.numbers h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+}
+
+.numbers-intro {
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(244, 237, 224, 0.7);
+  max-width: 460px;
+}
+
+.numbers-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(244, 237, 224, 0.15);
+  position: relative;
+}
+
+.num-cell {
+  background: var(--navy);
+  padding: 48px 32px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.num-cell:hover { background: var(--navy-deep); }
+
+.num-cell .big {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(60px, 7vw, 100px);
+  line-height: 0.9;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.num-cell .plus,
+.num-cell .unit-small {
+  color: var(--amber);
+  font-size: 0.5em;
+}
+
+.num-cell .label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 224, 0.7);
+  margin-top: 12px;
+}
+
+.num-cell .desc {
+  font-size: 14px;
+  color: rgba(244, 237, 224, 0.55);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ============ STORE FINDER ============ */
+.stores {
+  padding: 120px 48px;
+  background: var(--paper);
+  position: relative;
+}
+
+.stores-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.section-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--amber);
+}
+
+.stores h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.stores-text {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  margin-bottom: 32px;
+}
+
+.state-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.state-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  background: rgba(14, 26, 43, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+.state-list li:hover {
+  background: var(--navy);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+/* Brazil map */
+.map-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  padding: 24px;
+}
+
+.map-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-state {
+  fill: rgba(14, 26, 43, 0.08);
+  stroke: var(--navy);
+  stroke-width: 0.5;
+  transition: fill 0.2s;
+}
+
+.map-state.active {
+  fill: var(--amber);
+  cursor: pointer;
+}
+
+.map-state.active:hover {
+  fill: var(--navy);
+}
+
+.map-legend {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--amber);
+}
+
+/* ============ LINES ============ */
+.lines {
+  padding: 120px 48px;
+  background: var(--paper-warm);
+  position: relative;
+}
+
+.lines-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.lines-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.lines h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.lines-intro {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  max-width: 460px;
+}
+
+.lines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+}
+
+.line-card {
+  padding: 48px 36px;
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--paper);
+  transition: background 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.line-card:hover {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.line-card:hover .line-icon { color: var(--amber); }
+.line-card:hover .line-num { color: var(--amber); }
+
+.line-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--graphite-soft);
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.line-icon {
+  font-family: 'Anton', sans-serif;
+  font-size: 64px;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.line-card h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.line-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+
+.line-card .meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.7;
+}
+
+.meta-arrow {
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+}
+
+.meta-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+/* ============ B2B BAND ============ */
+.b2b {
+  padding: 100px 48px;
+  background: var(--navy);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.b2b-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+}
+
+.b2b-headline {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.b2b-headline .accent { color: var(--amber); }
+
+.b2b p {
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(244, 237, 224, 0.75);
+  margin-bottom: 32px;
+}
+
+.b2b-features {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+}
+
+.b2b-features li {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.15);
+}
+
+.b2b-features .num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  min-width: 32px;
+}
+
+.b2b-features .text {
+  flex: 1;
+}
+
+.b2b-features h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  margin-bottom: 4px;
+  font-weight: normal;
+}
+
+.b2b-features p {
+  font-size: 14px;
+  margin: 0;
+  color: rgba(244, 237, 224, 0.6);
+}
+
+/* ============ BRANDS MARQUEE ============ */
+.brands {
+  padding: 80px 0 100px;
+  background: var(--paper);
+}
+
+.brands-header {
+  max-width: 1280px;
+  margin: 0 auto 48px;
+  padding: 0 48px;
+  text-align: center;
+}
+
+.brands h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.brands-intro {
+  font-size: 16px;
+  color: var(--graphite-soft);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-warm);
+}
+
+.marquee::before, .marquee::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--paper-warm), transparent);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--paper-warm), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--graphite);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  cursor: default;
+}
+
+.marquee-item:hover { opacity: 1; color: var(--amber); }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============ CAREER ============ */
+.career {
+  padding: 120px 48px;
+  background: var(--paper-warm);
+  position: relative;
+}
+
+.career-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.career-art {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(120px, 18vw, 280px);
+  line-height: 0.85;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.career-art .num-2k {
+  display: block;
+  color: var(--amber);
+}
+
+.career-art .label-2k {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+  display: block;
+  margin-top: 16px;
+  letter-spacing: 0.18em;
+}
+
+.career-content h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.career-content p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  margin-bottom: 32px;
+}
+
+/* ============ ALERT (anti-fraud) ============ */
+.alert {
+  padding: 56px 48px;
+  background: var(--warning);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.alert-icon {
+  font-family: 'Anton', sans-serif;
+  font-size: 64px;
+  line-height: 1;
+}
+
+.alert-text h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.005em;
+}
+
+.alert-text p {
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 720px;
+  opacity: 0.95;
+}
+
+.alert-link {
+  background: var(--paper);
+  color: var(--warning);
+  padding: 14px 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.alert-link:hover {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--navy-deep);
+  color: var(--paper);
+  padding: 80px 48px 32px;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(244, 237, 224, 0.15);
+}
+
+.footer-brand .logo {
+  color: var(--paper);
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(244, 237, 224, 0.6);
+  margin-bottom: 24px;
+}
+
+.footer-apps {
+  display: flex;
+  gap: 12px;
+}
+
+.app-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(244, 237, 224, 0.08);
+  border: 1px solid rgba(244, 237, 224, 0.2);
+  color: var(--paper);
+  padding: 10px 14px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.app-badge:hover {
+  background: var(--amber);
+  color: var(--navy);
+  border-color: var(--amber);
+}
+
+.footer-col h4 {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  color: var(--amber);
+  font-weight: normal;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.footer-col a {
+  color: rgba(244, 237, 224, 0.7);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--amber); }
+
+.footer-col .info {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(244, 237, 224, 0.6);
+}
+
+.footer-legal {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-legal-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: rgba(244, 237, 224, 0.45);
+  line-height: 1.6;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(244, 237, 224, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.social-link:hover {
+  background: var(--amber);
+  color: var(--navy);
+  border-color: var(--amber);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 960px) {
+  .nav { padding: 16px 24px; }
+  .nav.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
+  .hero-stack { border-left: none; padding-left: 0; border-top: 1px solid var(--line-strong); padding-top: 24px; }
+  .stack-num { font-size: 56px; }
+  .numbers, .stores, .lines, .b2b, .career, .brands { padding-left: 24px; padding-right: 24px; }
+  .numbers-header, .lines-header, .stores-inner, .b2b-inner, .career-inner { grid-template-columns: 1fr; gap: 32px; }
+  .numbers-grid { grid-template-columns: 1fr; }
+  .lines-grid { grid-template-columns: 1fr; }
+  .career-art { font-size: 140px; }
+  .alert { padding: 32px 24px; }
+  .alert-inner { grid-template-columns: 1fr; gap: 16px; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  footer { padding: 60px 24px 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">
+    <span class="logo-mark"></span>CASTRILLON
+  </a>
+  <ul class="nav-links">
+    <li><a href="#empresa">Empresa</a></li>
+    <li><a href="#lojas">Lojas</a></li>
+    <li><a href="#linhas">Linhas</a></li>
+    <li><a href="#atacado">Atacado</a></li>
+    <li><a href="#carreiras">Carreiras</a></li>
+    <li><a href="https://castrillon.portaldocliente.online/" class="nav-cta" target="_blank" rel="noopener">Portal do Cliente</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Desde 1993 · Mato Grosso</div>
+    <h1>
+      Quem move o Brasil <span class="accent">depende</span> de quem move as peças.
+    </h1>
+    <p class="hero-sub">
+      A Castrillon é a maior rede de autopeças do Centro-Norte do país. Mais de 4 milhões de itens em estoque, 5 centros de distribuição e 90+ lojas em 8 estados, atendendo linha leve, pesada e agrícola.
+    </p>
+    <div class="hero-actions">
+      <a href="#lojas" class="btn btn-primary">Encontrar loja <span class="btn-arrow">→</span></a>
+      <a href="#atacado" class="btn btn-ghost">Atendimento atacado</a>
+    </div>
+  </div>
+
+  <aside class="hero-stack">
+    <div class="stack-item">
+      <div class="stack-num">33<span class="unit">anos</span></div>
+      <div class="stack-label">No mercado desde 1993</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-num">90<span class="unit">+</span></div>
+      <div class="stack-label">Lojas em operação</div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-num">8<span class="unit">UF</span></div>
+      <div class="stack-label">Estados com presença direta</div>
+    </div>
+  </aside>
+</section>
+
+<!-- ============ NUMBERS BAND ============ -->
+<section class="numbers" id="empresa">
+  <div class="numbers-header">
+    <div>
+      <div class="numbers-eyebrow">A Castrillon em números</div>
+      <h2>Escala que poucos têm.<br>Atendimento que ninguém copia.</h2>
+    </div>
+    <p class="numbers-intro">
+      A operação começou em 1993, em São José dos Quatro Marcos (MT), e cresceu seguindo o eixo do agronegócio. Hoje atendemos do produtor rural ao caminhoneiro, da oficina de bairro à frota corporativa.
+    </p>
+  </div>
+
+  <div class="numbers-grid">
+    <div class="num-cell">
+      <div class="big">4<span class="unit-small">M+</span></div>
+      <div class="label">Peças em estoque</div>
+      <p class="desc">Linha leve, pesada e agrícola, com giro real e disponibilidade entre lojas.</p>
+    </div>
+    <div class="num-cell">
+      <div class="big">5</div>
+      <div class="label">Centros de distribuição</div>
+      <p class="desc">Posicionados nos eixos rodoviários do agro, com reposição rápida pra rede inteira.</p>
+    </div>
+    <div class="num-cell">
+      <div class="big">3</div>
+      <div class="label">Atacados dedicados</div>
+      <p class="desc">Atendimento exclusivo CNPJ pra frotistas, oficinas e revendas parceiras.</p>
+    </div>
+    <div class="num-cell">
+      <div class="big">2K<span class="plus">+</span></div>
+      <div class="label">Colaboradores</div>
+      <p class="desc">Time treinado dentro de casa, com cultura de atendimento que veio do balcão.</p>
+    </div>
+    <div class="num-cell">
+      <div class="big">8</div>
+      <div class="label">Estados</div>
+      <p class="desc">MT, RO, BA, GO, MA, TO, PA, PI - operação direta, não franquia.</p>
+    </div>
+    <div class="num-cell">
+      <div class="big">90<span class="plus">+</span></div>
+      <div class="label">Lojas em operação</div>
+      <p class="desc">Presença próxima do cliente em cidades-polo do Centro-Norte do Brasil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORES ============ -->
+<section class="stores" id="lojas">
+  <div class="stores-inner">
+    <div>
+      <div class="section-eyebrow">Onde estamos</div>
+      <h2>Da matriz em Cuiabá<br>até a ponta do Pará.</h2>
+      <p class="stores-text">
+        90+ lojas em 8 estados do Centro-Norte. Sempre perto de quem precisa rodar - independente da estrada, do horário ou do tipo de veículo.
+      </p>
+      <ul class="state-list">
+        <li>Mato Grosso</li>
+        <li>Rondônia</li>
+        <li>Goiás</li>
+        <li>Bahia</li>
+        <li>Maranhão</li>
+        <li>Tocantins</li>
+        <li>Pará</li>
+        <li>Piauí</li>
+      </ul>
+      <a href="https://castrillon.com.br/lojas" class="btn btn-primary" target="_blank" rel="noopener">Ver todas as lojas <span class="btn-arrow">→</span></a>
+    </div>
+
+    <div class="map-wrap">
+      <svg viewBox="0 0 612 612" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa do Brasil com estados de atuação Castrillon">
+        <!-- Simplified Brazil map - states approximated as polygons -->
+        <!-- Inactive states -->
+        <g class="inactive">
+          <path class="map-state" d="M150,180 L210,170 L240,210 L220,250 L160,240 Z"/> <!-- AM -->
+          <path class="map-state" d="M90,180 L150,180 L160,240 L100,250 Z"/> <!-- AC area -->
+          <path class="map-state" d="M210,150 L260,140 L280,170 L240,210 Z"/> <!-- RR area -->
+          <path class="map-state" d="M260,140 L320,150 L320,200 L280,170 Z"/> <!-- AP area -->
+          <path class="map-state" d="M340,330 L400,330 L420,370 L370,380 Z"/> <!-- BA south -->
+          <path class="map-state" d="M280,400 L340,400 L360,450 L300,460 Z"/> <!-- MG -->
+          <path class="map-state" d="M340,450 L400,440 L420,490 L370,510 Z"/> <!-- ES/RJ -->
+          <path class="map-state" d="M260,460 L320,470 L310,510 L240,500 Z"/> <!-- SP -->
+          <path class="map-state" d="M210,500 L280,500 L290,540 L220,550 Z"/> <!-- PR -->
+          <path class="map-state" d="M180,540 L260,540 L270,580 L190,580 Z"/> <!-- SC/RS -->
+          <path class="map-state" d="M380,300 L420,290 L430,320 L390,330 Z"/> <!-- RN/PB area -->
+          <path class="map-state" d="M390,330 L430,320 L440,360 L400,370 Z"/> <!-- PE/AL/SE -->
+          <path class="map-state" d="M180,400 L240,390 L260,430 L200,440 Z"/> <!-- MS -->
+          <path class="map-state" d="M280,330 L340,330 L340,380 L290,380 Z"/> <!-- DF area -->
+        </g>
+
+        <!-- Active states (8 estados Castrillon) -->
+        <!-- MT -->
+        <path class="map-state active" d="M170,290 L260,280 L280,360 L190,370 Z" data-state="MT"><title>Mato Grosso</title></path>
+        <!-- RO -->
+        <path class="map-state active" d="M110,260 L170,255 L180,310 L120,315 Z" data-state="RO"><title>Rondônia</title></path>
+        <!-- GO -->
+        <path class="map-state active" d="M260,330 L335,325 L340,385 L280,390 Z" data-state="GO"><title>Goiás</title></path>
+        <!-- BA -->
+        <path class="map-state active" d="M340,260 L420,265 L425,330 L345,335 Z" data-state="BA"><title>Bahia</title></path>
+        <!-- MA -->
+        <path class="map-state active" d="M310,200 L380,195 L385,260 L320,265 Z" data-state="MA"><title>Maranhão</title></path>
+        <!-- TO -->
+        <path class="map-state active" d="M280,235 L340,230 L345,300 L290,305 Z" data-state="TO"><title>Tocantins</title></path>
+        <!-- PA -->
+        <path class="map-state active" d="M210,165 L320,160 L320,230 L220,240 Z" data-state="PA"><title>Pará</title></path>
+        <!-- PI -->
+        <path class="map-state active" d="M370,210 L430,210 L430,275 L380,270 Z" data-state="PI"><title>Piauí</title></path>
+      </svg>
+      <div class="map-legend">
+        <span class="legend-dot"></span> Estados Castrillon
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LINES ============ -->
+<section class="lines" id="linhas">
+  <div class="lines-inner">
+    <div class="lines-header">
+      <div>
+        <div class="section-eyebrow">O que atendemos</div>
+        <h2>Três linhas.<br>Uma rede só.</h2>
+      </div>
+      <p class="lines-intro">
+        Da carro de passeio à colheitadeira. Do utilitário ao caminhão extrapesado. A Castrillon é referência nas três frentes que movem o agro brasileiro.
+      </p>
+    </div>
+
+    <div class="lines-grid">
+      <div class="line-card">
+        <div class="line-num">01 / Linha Leve</div>
+        <div class="line-icon">L</div>
+        <h3>Carros e Utilitários</h3>
+        <p>Peças originais e de procedência pra veículos leves nacionais e importados. Filtros, freios, suspensão, motor, elétrica - estoque pra ontem.</p>
+        <div class="meta">Em todas as 90+ lojas <span class="meta-arrow"></span></div>
+      </div>
+
+      <div class="line-card">
+        <div class="line-num">02 / Linha Pesada</div>
+        <div class="line-icon">P</div>
+        <h3>Caminhões e Extrapesados</h3>
+        <p>Linha completa pra rodoviária e fora-de-estrada. Cardan, freio, transmissão, motor diesel, embreagem - das marcas que o caminhoneiro confia.</p>
+        <div class="meta">Lojas e atacado dedicado <span class="meta-arrow"></span></div>
+      </div>
+
+      <div class="line-card">
+        <div class="line-num">03 / Linha Agrícola</div>
+        <div class="line-icon">A</div>
+        <h3>Tratores e Implementos</h3>
+        <p>Compromisso inabalável com a safra. Componentes de trator, plantadeira, colheitadeira e implementos - direto do fabricante pra fazenda.</p>
+        <div class="meta">Cobertura nos 8 estados <span class="meta-arrow"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B2B ============ -->
+<section class="b2b" id="atacado">
+  <div class="b2b-inner">
+    <div>
+      <div class="numbers-eyebrow">Atacado Castrillon</div>
+      <h1 class="b2b-headline">Pra <span class="accent">frota</span>,<br>oficina<br>e revenda.</h1>
+      <p>Atendimento exclusivo CNPJ em 3 unidades de atacado, com condições comerciais e logística pensadas pra quem compra em volume.</p>
+      <a href="#contato" class="btn btn-primary" style="background: var(--amber); color: var(--navy);">Falar com comercial atacado <span class="btn-arrow">→</span></a>
+    </div>
+
+    <ul class="b2b-features">
+      <li>
+        <span class="num">01</span>
+        <div class="text">
+          <h4>Crédito direto</h4>
+          <p>Análise via portal, condições por volume e histórico de relacionamento.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div class="text">
+          <h4>Logística entre lojas</h4>
+          <p>Reposição da rede inteira pelos 5 CDs, sem furo de estoque.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div class="text">
+          <h4>Cobertura técnica</h4>
+          <p>Time que conhece linha leve, pesada e agrícola - pra recomendar a peça certa.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div class="text">
+          <h4>Portal do Cliente</h4>
+          <p>Segunda via de boleto, NFe e gestão de conta direto na palma da mão.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <div class="brands-header">
+    <div class="section-eyebrow" style="justify-content: center;">Marcas que representamos</div>
+    <h2>Só o que rende quilômetro de verdade.</h2>
+    <p class="brands-intro">Trabalhamos com fabricantes de procedência - originais, similares homologados e nacionais reconhecidos. Sem indicação às cegas.</p>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">Bosch</span>
+      <span class="marquee-item">SKF</span>
+      <span class="marquee-item">Mahle</span>
+      <span class="marquee-item">Mann</span>
+      <span class="marquee-item">Cofap</span>
+      <span class="marquee-item">NGK</span>
+      <span class="marquee-item">Sabó</span>
+      <span class="marquee-item">Cummins</span>
+      <span class="marquee-item">Eaton</span>
+      <span class="marquee-item">ZF</span>
+      <span class="marquee-item">Delphi</span>
+      <span class="marquee-item">Valeo</span>
+      <span class="marquee-item">Continental</span>
+      <span class="marquee-item">Magneti Marelli</span>
+      <span class="marquee-item">Fras-le</span>
+      <span class="marquee-item">Wabco</span>
+      <span class="marquee-item">Fremax</span>
+      <span class="marquee-item">Tecfil</span>
+      <span class="marquee-item">Wega</span>
+      <span class="marquee-item">Sachs</span>
+      <span class="marquee-item">LuK</span>
+      <span class="marquee-item">FAG</span>
+      <span class="marquee-item">INA</span>
+      <span class="marquee-item">Dayco</span>
+      <span class="marquee-item">Gates</span>
+      <span class="marquee-item">Bardahl</span>
+      <span class="marquee-item">Petronas</span>
+      <!-- Duplicate for infinite scroll -->
+      <span class="marquee-item">Bosch</span>
+      <span class="marquee-item">SKF</span>
+      <span class="marquee-item">Mahle</span>
+      <span class="marquee-item">Mann</span>
+      <span class="marquee-item">Cofap</span>
+      <span class="marquee-item">NGK</span>
+      <span class="marquee-item">Sabó</span>
+      <span class="marquee-item">Cummins</span>
+      <span class="marquee-item">Eaton</span>
+      <span class="marquee-item">ZF</span>
+      <span class="marquee-item">Delphi</span>
+      <span class="marquee-item">Valeo</span>
+      <span class="marquee-item">Continental</span>
+      <span class="marquee-item">Magneti Marelli</span>
+      <span class="marquee-item">Fras-le</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREER ============ -->
+<section class="career" id="carreiras">
+  <div class="career-inner">
+    <div class="career-art">
+      <span class="num-2k">2.000+</span>
+      <span class="label-2k">Pessoas que fazem a Castrillon todo dia</span>
+    </div>
+    <div class="career-content">
+      <div class="section-eyebrow">Trabalhe na Castrillon</div>
+      <h2>A vaga<br>tá esperando.</h2>
+      <p>Time de mais de 2 mil pessoas, em 8 estados. Plano de carreira que sai do balcão até a gerência regional - foi assim que muita gente da diretoria começou.</p>
+      <a href="https://castrillon.gupy.io/" class="btn btn-primary" target="_blank" rel="noopener">Ver vagas abertas <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALERT ============ -->
+<section class="alert" id="contato">
+  <div class="alert-inner">
+    <div class="alert-icon">!</div>
+    <div class="alert-text">
+      <h3>Atenção: golpes em nome da Castrillon</h3>
+      <p>A Castrillon <strong>NÃO</strong> recebe pagamento em contas de terceiros, em CPF, e <strong>não vende pela internet</strong>. Cadastros são feitos presencialmente em uma das lojas. Pagamentos via Pix devem ser feitos exclusivamente para o CNPJ da empresa - nunca para CPF.</p>
+    </div>
+    <a href="https://www.contatoseguro.com.br/castrillonautopecas" class="alert-link" target="_blank" rel="noopener">Canal de denúncias →</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark"></span>CASTRILLON
+        </a>
+        <p>Maior rede de autopeças do Centro-Norte do Brasil. Linha leve, pesada e agrícola, com 90+ lojas em 8 estados desde 1993.</p>
+        <div class="footer-apps">
+          <a href="https://apps.apple.com/app/castrillon-autope%C3%A7as/id6467522822" class="app-badge" target="_blank" rel="noopener">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=br.com.castrillon" class="app-badge" target="_blank" rel="noopener">Google Play</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="https://castrillon.com.br/castrillon" target="_blank" rel="noopener">Sobre a Castrillon</a></li>
+          <li><a href="https://castrillon.com.br/lojas" target="_blank" rel="noopener">Nossas lojas</a></li>
+          <li><a href="https://castrillon.com.br/produtos" target="_blank" rel="noopener">Produtos</a></li>
+          <li><a href="https://castrillon.com.br/fabricantes" target="_blank" rel="noopener">Fabricantes</a></li>
+          <li><a href="https://castrillon.com.br/novidades" target="_blank" rel="noopener">Novidades</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="https://castrillon.portaldocliente.online/" target="_blank" rel="noopener">Portal do Cliente</a></li>
+          <li><a href="https://castrillon.gupy.io/" target="_blank" rel="noopener">Trabalhe Conosco</a></li>
+          <li><a href="https://castrillon.com.br/fale-conosco" target="_blank" rel="noopener">Fale Conosco</a></li>
+          <li><a href="https://www.contatoseguro.com.br/castrillonautopecas" target="_blank" rel="noopener">Canal de Denúncias</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Matriz</h4>
+        <p class="info">
+          Av. Ayrton Senna da Silva, 733<br>
+          Pascoal Ramos<br>
+          Cuiabá - MT, 78098-000<br><br>
+          (65) 3645-4400<br>
+          marketing@castrillon.com.br<br><br>
+          Seg a Sex 7:30 às 18:00<br>
+          Sáb 7:30 às 12:00
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="footer-legal-text">
+        © 2026 Castrillon Autopeças · Aguilera Autopeças Ltda · CNPJ 37.525.771/0001-02
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/castrillonautopecasoficial" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="https://www.instagram.com/castrillonautopecas" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.linkedin.com/company/castrillon-autopecas" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// State list hover sync with map
+const stateMap = {
+  'Mato Grosso': 'MT', 'Rondônia': 'RO', 'Goiás': 'GO', 'Bahia': 'BA',
+  'Maranhão': 'MA', 'Tocantins': 'TO', 'Pará': 'PA', 'Piauí': 'PI'
+};
+document.querySelectorAll('.state-list li').forEach(li => {
+  li.addEventListener('mouseenter', () => {
+    const code = stateMap[li.textContent];
+    const path = document.querySelector(`[data-state="${code}"]`);
+    if (path) path.style.fill = 'var(--navy)';
+  });
+  li.addEventListener('mouseleave', () => {
+    const code = stateMap[li.textContent];
+    const path = document.querySelector(`[data-state="${code}"]`);
+    if (path) path.style.fill = '';
+  });
+});
+</script>
+
+</body>
+</html>
